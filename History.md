@@ -1,4 +1,16 @@
 
+0.6.0-alpha1 - December 24, 2016
+--------------------------------
+* Forked from [original repository][1] by [me][2]
+
+[2]: http://philgs.me
+
+0.5.0 - February 25, 2016
+-------------------------
+* last update by [original creator(s)][1]
+
+[1]: https://github.com/segmentio/metalsmith-permalinks
+
 0.4.0 - September 2, 2014
 -------------------------
 * add `permalink: false` option to disable permalinking

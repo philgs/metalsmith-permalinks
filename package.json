@@ -1,8 +1,20 @@
 {
   "name": "metalsmith-permalinks",
   "description": "A metalsmith plugin for permalinks.",
-  "repository": "git://github.com/segmentio/metalsmith-permalinks.git",
-  "version": "0.5.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/philgs/metalsmith-permalinks.git"
+  },
+  "author": {
+    "name": "Phil Gates-Shannon",
+    "email": "phil.gs@gmail.com",
+    "url": "http://philgs.me"
+  },
+  "contributors": {
+    "name": "Original SegmentIO Contributors",
+    "url": "https://github.com/segmentio/metalsmith-permalinks/graphs/contributors"
+  },
+  "version": "0.6.0-alpha1",
   "license": "MIT",
   "main": "lib/index.js",
   "scripts": {
