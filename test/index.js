@@ -193,4 +193,17 @@ describe( 'metalsmith-permalinks', function() {
             } );
     } );
 
+    it( 'should use a custom date format with other fields', function( done ) {
+        Metalsmith( 'test/fixtures/custom-date-fields' )
+            .use( permalinks( {
+                pattern: 'blog/:date/:title',
+                date: 'YYYY/MM'
+            } ) )
+            .build( function( err ) {
+                if ( err ) return done( err );
+                equal( 'test/fixtures/custom-date-fields/expected', 'test/fixtures/custom-date-fields/build' );
+                done();
+            } );
+    } );
+
 } );
