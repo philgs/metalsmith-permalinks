@@ -5,6 +5,7 @@ var Metalsmith = require( 'metalsmith' );
 var moment = require( 'moment' );
 var permalinks = require( '..' );
 var touch = require( 'touch' );
+var debug = require( 'metalsmith-debug' );
 
 describe( 'metalsmith-permalinks', function() {
     before( function( done ) {
@@ -207,7 +208,7 @@ describe( 'metalsmith-permalinks', function() {
             } );
     } );
 
-    it( 'should use the file\'s "modified" date if there is no "date" metadata', function( done ) {
+    it.only( 'should use the file\'s "modified" date if there is no "date" metadata', function( done ) {
         // Set the modify and access times for each of the test files; see [this
         // Stack Exchange answer][1] for more information.
         // [1]: http://unix.stackexchange.com/a/2803
@@ -220,9 +221,9 @@ describe( 'metalsmith-permalinks', function() {
 
         Metalsmith( 'test/fixtures/modified-date' )
             .use( permalinks( {
-                pattern: ':date',
-                date: 'YYYY/MM'
+                pattern: ':date'
             } ) )
+            .use( debug() )
             .build( function( err ) {
                 if ( err ) return done( err );
                 equal( 'test/fixtures/modified-date/expected', 'test/fixtures/modified-date/build' );
