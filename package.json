@@ -29,6 +29,7 @@
   "devDependencies": {
     "assert-dir-equal": "0.0.1",
     "metalsmith": "0.x",
-    "rimraf": "^2.2.8"
+    "rimraf": "^2.2.8",
+    "touch": "^1.0.0"
   }
 }

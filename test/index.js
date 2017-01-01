@@ -4,6 +4,7 @@ var equal = require( 'assert-dir-equal' );
 var Metalsmith = require( 'metalsmith' );
 var moment = require( 'moment' );
 var permalinks = require( '..' );
+var touch = require( 'touch' );
 
 describe( 'metalsmith-permalinks', function() {
     before( function( done ) {
@@ -205,5 +206,30 @@ describe( 'metalsmith-permalinks', function() {
                 done();
             } );
     } );
+
+    it( 'should use the file\'s "modified" date if there is no "date" metadata', function( done ) {
+        // Set the modify and access times for each of the test files; see [this
+        // Stack Exchange answer][1] for more information.
+        // [1]: http://unix.stackexchange.com/a/2803
+        touch.sync( 'test/fixtures/modified-date/src/index.html', {
+            time: moment( '2013-10-17', 'YYYY-MM-DD' ).toDate()
+        } );
+        touch.sync( 'test/fixtures/modified-date/src/one.html', {
+            time: moment( '2013-05-23', 'YYYY-MM-DD' ).toDate()
+        } );
+
+        Metalsmith( 'test/fixtures/modified-date' )
+            .use( permalinks( {
+                pattern: ':date',
+                date: 'YYYY/MM'
+            } ) )
+            .build( function( err ) {
+                if ( err ) return done( err );
+                equal( 'test/fixtures/modified-date/expected', 'test/fixtures/modified-date/build' );
+                done();
+            } );
+    } );
+
+    it( 'should be compatible with the "publishing" plugin and its metadata fields' );
 
 } );
