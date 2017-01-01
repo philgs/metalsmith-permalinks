@@ -208,7 +208,7 @@ describe( 'metalsmith-permalinks', function() {
             } );
     } );
 
-    it.only( 'should use the file\'s "modified" date if there is no "date" metadata', function( done ) {
+    it( 'should have an option to use the file\'s "modified" date if there is no "date" metadata', function( done ) {
         // Set the modify and access times for each of the test files; see [this
         // Stack Exchange answer][1] for more information.
         // [1]: http://unix.stackexchange.com/a/2803
@@ -221,7 +221,8 @@ describe( 'metalsmith-permalinks', function() {
 
         Metalsmith( 'test/fixtures/modified-date' )
             .use( permalinks( {
-                pattern: ':date'
+                pattern: ':date',
+                useDefaultDate: true
             } ) )
             .use( debug() )
             .build( function( err ) {
