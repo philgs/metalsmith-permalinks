@@ -1,5 +1,13 @@
 
-0.6.0-alpha1 - December 24, 2016
+0.6.0 - 1 January 2017
+----------------------
+* Add option to set a file's date based on its "last modified" time if no date is set in the metadata
+* Incorporated changes from [@dochang][4] for [MomentJS handling][3]
+
+[3]: https://github.com/dochang/metalsmith-permalinks
+[4]: https://github.com/dochang
+
+0.6.0-alpha1 - 24 December 2016
 --------------------------------
 * Forked from [original repository][1] by [me][2]
 

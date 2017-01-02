@@ -31,7 +31,7 @@ var permalinks = require('metalsmith-permalinks');
 
 var metalsmith = new Metalsmith(__dirname)
   .use(permalinks({
-      // original options would act as the keys of a `default` linkset, 
+      // original options would act as the keys of a `default` linkset,
       pattern: ':title',
       date: 'YYYY',
 
@@ -49,7 +49,7 @@ var metalsmith = new Metalsmith(__dirname)
 
 #### Dates
 
-  By default any date will be converted to a `YYYY/MM/DD` format when using in a permalink pattern, but you can change the conversion by passing a `date` option:
+  By default, a date in the file metadata will be converted to a `YYYY/MM/DD` format when using in a permalink pattern, but you can change the conversion by passing a `date` option:
 
 ```js
 metalsmith.use(permalinks({
@@ -59,6 +59,15 @@ metalsmith.use(permalinks({
 ```
 
   It uses [moment.js](http://momentjs.com/docs/#/displaying/format/) to format the string.
+
+  If a file does not have a `date` metadata field, this plugin will create one based on the "last modified" time of the file, if you set the `useDefaultDate` option:
+
+```js
+metalsmith.use(permalinks({
+  pattern: ':date/:title',
+  useDefaultDate: true
+}));
+```
 
 #### Relative Files
 

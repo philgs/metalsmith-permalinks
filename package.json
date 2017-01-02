@@ -14,7 +14,7 @@
     "name": "Original SegmentIO Contributors",
     "url": "https://github.com/segmentio/metalsmith-permalinks/graphs/contributors"
   },
-  "version": "0.6.0-alpha1",
+  "version": "0.6.0",
   "license": "MIT",
   "main": "lib/index.js",
   "scripts": {
